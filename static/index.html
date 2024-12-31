@@ -1,0 +1,92 @@
+<html>
+
+<head>
+    <style>
+        body {
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        #url {
+            font-size: 2rem;
+            width: 100%;
+        }
+
+        #submit {
+            font-size: 3rem;
+            width: 100%;
+        }
+
+        select {
+            font-size: 2rem;
+        }
+
+        select{
+            width: 100%;
+        }
+
+        table {
+            margin: auto;
+            width: 100%;
+            max-width: 50rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Скачиватель с ютуба</h1>
+
+    <form action="download">
+        <table>
+            <tr>
+                <td colspan="2">
+                    <input id="url" name="url" type="text" placeholder="ссылка на видео">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="res">
+                        <option value="2160">2160p</option>
+                        <option value="1440">1440p</option>
+                        <option value="1080" selected>1080p</option>
+                        <option value="720">720p</option>
+                        <option value="480">480p</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="fmt">
+                        <option value="mp4">mp4</option>
+                        <option value="webm">webm</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input id="submit" type="submit" value="Скачать">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <footer>
+        <p>
+            Это просто скачиватель с ютуба. Всё. Да, реально, понимаю, сложно поверить, но это так. Здесь нет рекламы
+            платных подписок и бесполезных приложений. Просто вставь ссылку и скачивай. Вот почему я должен был сам это
+            сделать, а? Человечество лечит рак, летает в космос, редактирует ДНК, а вот нормаьный скачиватель с ютуба
+            ещё никто до меня сделать не догадался.
+        </p>
+        <p>
+            © Сельцо Technologies 2024
+        </p>
+    </footer>
+</body>
+
+</html>
