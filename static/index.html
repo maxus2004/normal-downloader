@@ -1,83 +1,160 @@
+<!DOCTYPE html>
 <html>
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body {
-            text-align: center;
-            font-family: sans-serif;
+        :root {
+            --primary-color: #ff0000;
+            --secondary-color: #282828;
+            --background-color: #f9f9f9;
+            --text-color: #333;
         }
 
-        footer {
-            position: absolute;
-            bottom: 0;
-            font-size: 0.75rem;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            text-align: center;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+            flex-grow: 1;
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .download-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
         }
 
         #url {
-            font-size: 2rem;
+            font-size: 1.1rem;
             width: 100%;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid #e1e1e1;
+            border-radius: 0.5rem;
+            transition: border-color 0.3s ease;
         }
 
-        #submit {
-            font-size: 3rem;
-            width: 100%;
+        #url:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .options-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         select {
-            font-size: 2rem;
+            flex: 1;
+            font-size: 1.1rem;
+            padding: 0.8rem;
+            border: 2px solid #e1e1e1;
+            border-radius: 0.5rem;
+            background-color: white;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
         }
 
-        select{
-            width: 100%;
+        select:focus {
+            outline: none;
+            border-color: var(--primary-color);
         }
 
-        table {
-            margin: auto;
+        #submit {
+            font-size: 1.2rem;
             width: 100%;
-            max-width: 50rem;
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #submit:hover {
+            background-color: #e00000;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 2rem 1rem;
+            font-size: 0.9rem;
+            color: #666;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        footer p:last-child {
+            margin-bottom: 0;
+            color: #999;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .options-row {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
-
 <body>
-    <h1>Скачиватель с ютуба</h1>
-
-    <form action="download">
-        <table>
-            <tr>
-                <td colspan="2">
-                    <input id="url" name="url" type="text" placeholder="ссылка на видео">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <select name="res">
-                        <option value="2160">2160p</option>
-                        <option value="1440">1440p</option>
-                        <option value="1080" selected>1080p</option>
-                        <option value="720">720p</option>
-                        <option value="480">480p</option>
-                    </select>
-                </td>
-                <td>
-                    <select name="fmt">
-                        <option value="mp4">mp4</option>
-                        <option value="webm">webm</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <input id="submit" type="submit" value="Скачать">
-                </td>
-            </tr>
-        </table>
-    </form>
+    <div class="container">
+        <h1>Скачиватель с ютуба</h1>
+        <form action="download" class="download-form">
+            <input id="url" name="url" type="text" placeholder="ссылка на видео" required>
+            <div class="options-row">
+                <select name="res">
+                    <option value="2160">2160p</option>
+                    <option value="1440">1440p</option>
+                    <option value="1080" selected>1080p</option>
+                    <option value="720">720p</option>
+                    <option value="480">480p</option>
+                </select>
+                <select name="fmt">
+                    <option value="mp4">mp4</option>
+                    <option value="webm">webm</option>
+                </select>
+            </div>
+            <input id="submit" type="submit" value="Скачать">
+        </form>
+    </div>
     <footer>
         <p>
             Это просто скачиватель с ютуба. Всё. Да, реально, понимаю, сложно поверить, но это так. Здесь нет рекламы
@@ -90,5 +167,4 @@
         </p>
     </footer>
 </body>
-
 </html>
